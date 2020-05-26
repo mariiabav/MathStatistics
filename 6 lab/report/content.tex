@@ -1,0 +1,135 @@
+\newpage
+\listoffigures
+
+
+\newpage
+\section{Постановка задачи}
+Найти оценки коэффициентов линейной регрессии $y_i = a+bx_i+e_i$, используя 20 точек на отрезке [-1.8; 2] с равномерным шагом равным 0.2. Ошибку $e_i$ считать нормально распределённой с параметрами (0, 1). В качестве эталонной зависимости взять $y_i = 2+2x_i+e_i$. При построении оценок коэффициентов использовать два критерия: критерий наименьших квадратов и критерий наименьших модулей. Проделать то же самое для выборки, у которой в значения $y_1$ и $y_{20}$ вносятся возмущения 10 и -10.
+\addcontentsline{toc}{section}{Постановка задачи}
+
+\section{Теория}
+
+\subsection{Простая линейная регрессия}
+\subsubsection{Модель простой линейной регрессии}
+Линейная регрессия предполагает, что функция регрессионной зависимости зависит от параметров следующим образом:
+\begin{equation} \label{eq:K}
+y_i = \beta_0 + \beta_1x_i + \epsilon_i, i = 1, ... n,
+\end{equation}
+где $x_1, ... x_n$ — заданные числа; $y_1, ... y_n$ — наблюдаемые значения отклика;
+$\epsilon_1, ... \epsilon_n$ — независимые, нормально распределённые $N(0, \sigma)$ с нулевым математическим ожиданием и одинаковой неизвестной дисперсией случайные величины; $\beta_0, \beta_1$ — неизвестные параметры, подлежащие оцениванию.
+В модели отклик $y$ зависит от одного $x$, и весь разброс экспериментальных точек объясняется только погрешностями наблюдений отклика $y$. Погрешностями результатов измерений $x$ пренебрегают \cite{theory}.
+
+\subsubsection{Метод наименьших квадратов}
+Используют различные методы нахождения оптимальных параметров линейной регрессии. Одним из методов является метод наименьших квадратов (МНК). Параметры регрессии определяются так, чтобы сделать рассогласование отклика и регрессионной функции наименьшим. Происходит выбор вектора $\beta$, минимизирующего ошибку:
+\begin{equation} \label{eq:Q}
+Q(\beta_0, \beta_1) = \sum\limits_{i=1}^n \epsilon^2_i = \sum\limits_{i=1}^n(y_i - \beta_0 - \beta_1x_i)^2 \rightarrow  \stackrel{\beta_0, \beta_1}{min}
+\end{equation}
+
+Оценки $\hat{\beta_0} , \hat{\beta_1}$ параметров $\beta_0, \beta_1$, релизующие минимум критерия (2), называют МНК-оценками.  \cite{theory}
+
+\subsubsection{Расчётные формулы для МНК-оценок}
+МНК-оценки параметров $\hat{\beta_0}, \hat{\beta_1}$ находятся из условия обращения функции $Q(\beta_0, \beta_1)$ в минимум.
+Выпишем необходимые условия экстремума:
+\begin{equation} \label{eq:systen_extremum}
+\begin{cases}
+   \frac{\partial Q}{\partial \beta_0} = -2 \sum\limits_{i=1}^n (y_i - \beta_0 - \beta_1x_i) = 0 \\
+   \frac{\partial Q}{\partial \beta_1} = -2 \sum\limits_{i=1}^n (y_i - \beta_0 - \beta_1x_i)x_i = 0
+ \end{cases}
+\end{equation}
+Из системы (3) получим
+\begin{equation} \label{eq:systen}
+ \begin{cases}
+ n\hat{\beta_0} + \hat{\beta_1}\sum x_i = \sum y_i \\
+ \hat{\beta_0} \sum x_i + \hat{\beta_1} \sum x^2_i = \sum x_i y_i.
+ \end{cases}
+\end{equation}
+Разделим оба уравнения на $n$:
+\begin{equation} \label{eq:systen}
+ \begin{cases}
+ \hat{\beta_0} + \frac{1}{n}\hat{\beta_1}\sum x_i = \frac{1}{n}\sum y_i \\
+ \frac{1}{n}  \hat{\beta_0} \sum x_i + \frac{1}{n} \hat{\beta_1} \sum x^2_i = \frac{1}{n} \sum x_i y_i.
+ \end{cases}
+\end{equation}
+Произведем замену:
+\begin{equation} \label{eq:systen}
+\overline{x} = \frac{1}{n} \sum x_i, 
+\overline{y} = \frac{1}{n} \sum y_i, 
+\overline{x^2} = \frac{1}{n} \sum x^2_i, \overline{xy} = \frac{1}{n} \sum x_i y_i
+\end{equation}
+получим
+\begin{equation} \label{eq:systen}
+ \begin{cases}
+   \hat{\beta_0} + \overline{x}\hat{\beta_1} = \overline{y}\\
+   \overline{x} \hat{\beta_0} + \overline{x^2} \hat{\beta_1} = \overline{xy}.
+ \end{cases}
+\end{equation}
+Определитель системы (5)
+\begin{equation} \label{eq:systen}
+ \overline{x^2} - (\overline{x})^2 = n^{-1} \sum (x_i - \overline{x})^2 = s^2_x > 0 
+\end{equation}
+если среди значений $x_1, ... x_n$ есть различные, что и будем предполагать. Тогда МНК-оценку $\hat{\beta_1}$ наклона прямой регрессии находим по формуле Крамера
+\begin{equation} \label{eq:systen}
+ \hat{\beta_1} =  \frac{\overline{xy} - \overline{x} \overline{y}}{\overline{x^2} - (\overline{x})^2}
+\end{equation}
+оценку $\hat{\beta_0}$ выражаем из первого уравнения системы:
+\begin{equation} \label{eq:systen}
+ \hat{\beta_0} =  \overline{y} - \overline{x} \hat{\beta_1}.
+\end{equation}
+Доказательство минимальности функции $Q(\beta_0, \beta_1)$ в стационарной точке проведём с помощью известного достаточного признака экстремума функции двух переменных. Имеем:
+\begin{equation} \label{eq:systen}
+\frac{\partial^2 Q}{\partial \beta^2_0} = 2n,
+\frac{\partial^2 Q}{\partial \beta^2_1} = 2 \sum x^2_i = 2n\overline{x^2},  
+\frac{\partial^2 Q}{\partial \beta_0 \partial \beta_1} = 2 \sum x_i = 2n\overline{x}
+\end{equation}
+
+
+\begin{equation} \label{eq:systen}
+  \nabla = \frac{\partial^2 Q}{\partial \beta^2_0} \frac{\partial^2 Q}{\partial \beta^2_1} - (\frac{\partial^2 Q}{\partial \beta_0 \partial \beta_0})^2 
+ = 4n^2 \overline{x^2} - 4n^2 (\overline{x})^2 
+ = 4n^2 [ \overline{x^2} -  (\overline{x})^2]
+ = 4n^2 [ \frac{1}{n} \sum (x_i -\overline{x})^2] = 4n^2s^2_x > 0
+\end{equation}
+
+Этот результат вместе с условием $\frac{\partial^2 Q}{\partial \beta^2_0} = 2n > 0$. \cite{theory}
+
+
+\subsection{Робастные оценки коэффициентов линейной регрессии}
+Метод наименьших модулей известен как метод не являющийся чувствительным к наличию в данных редких, но больших по величине выбросов. Оценки коэффициентов линейной регрессии с помощью МНМ находят слудующим образом:
+\begin{equation} \label{eq:systen}
+  \sum\limits_{i=1}^n |y_i - \beta_0 - \beta_1x_i| \rightarrow  \stackrel{\beta_0, \beta_1}{min}
+\end{equation}
+Эта задача решается численно и может быть решена с помощью встроенных средств некоторых языков программирования.
+
+\section{Реализация}
+Лабораторная работа была выполнена с помощью встроенных средств языка программирования Python в среде разработки IDLE. Исходный код лабораторной работы приведён по ссылке. В ходе работы использовались библиотеки Math, Matplotlib, Numpy и Seaborn.
+Помимо основных в ходе работы были использованы следующие инструменты:
+\begin{itemize}
+\item minimize() пакета scipy.optimize: решение задачи минимизации функции нескольких переменных с использованием заданного метода. \\ Выбранный метод — симплекс-метод Нелдера-Мида. \cite{SciPy}
+\end{itemize}
+
+\section{Результаты}
+\subsection{Оценки коэффициентов линейной регрессии}
+\subsubsection{Выборка без возмущений}
+
+\begin{itemize}
+\item Критерий наименьших квадратов: 
+\begin{center}
+$\hat{a} \approx 2.19, \hat{b} \approx 2.03$
+\end{center}
+\item Критерий наименьших модулей: 
+\begin{center}
+$\hat{a} \approx 2.17, \hat{b} \approx 2.03$
+\end{center}
+\end{itemize}
+
+\subsubsection{Выборка с возмущениями}
+\begin{itemize}
+\item Критерий наименьших квадратов: 
+\begin{center}
+$\hat{a} \approx 2.13, \hat{b} \approx 0.06$
+\end{center}
+\item Критерий наименьших модулей:
+\begin{center}
+$\hat{a } \approx 1.39, \hat{b} \approx 2.25$
+\end{center}
+\end{itemize}
