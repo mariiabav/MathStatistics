@@ -48,7 +48,7 @@ def cramer_von_mises_criterion(data, mu_hat, sigma_hat):
         I[j] = D[j] + H[j]
 
     ISum = np.sum(I)
-    print("Сумма значений 10го столбца таблицы: %.6f" + str(ISum))
+    print("Сумма значений 10го столбца таблицы: %.6f" + str(ISum))
     nomega2 = -size - 2*ISum
     
 
