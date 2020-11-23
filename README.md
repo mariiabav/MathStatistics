@@ -3,8 +3,10 @@
 Telegram bot sends memes and GIFs.
 Application is used for visualization of server data.
 ## Requirements
-- python 3.8.x or higher ([get at python.org](https://www.python.org/downloads/))
+- [python 3.8.x](https://www.python.org/downloads/) or higher 
 - additional packages (see in `requirements.txt`) 
+- [R](https://cran.r-project.org/) version 4.0.3 or later
+- [Rstudio](https://www.rstudio.com/products/rstudio/download/) version 1.3.1093 or later
 ## Installation
 - Download these files from GitLab or clone this repository via https:
     ```
@@ -17,17 +19,19 @@ Application is used for visualization of server data.
    ```
    pip3 install requirements.txt
    ```
-- Install [R](https://cran.r-project.org/) version 3.4.0 or later
-- Install [Rstudio](https://www.rstudio.com/products/rstudio/download/) version 1.1.453 or later
-## Usage
-- Run program from the root folder of repository: `python src/main.py`
-- Before starting the application, enter the command:
-  ```r
+- Install shiny package in Rstudio
+  ```
   install.packages("shiny")
   ```
-  In Rstudio you can open and start app through the `File -> Open File -> '.../app.R'` menu at the top of the screen.
-  Once all packages are installed, select `Run App` from the `Addins` menu in Rstudio or use the command below to launch the app:
-- You will see input-UI for your function to find root on suggested interval. Please enter your function and algorithm-parameters and press "OK". You will see visualization of newton algorithm for your input function step by step. 
+
+## Usage
+- Run server from the root folder of repository. Use the commands:
+   ```
+   git checkout develop
+   cd src
+   python3 manage.py runserver
+   ```
+- Start app through the `File -> Open File -> '.../ui.R'` in Rstudio. Select `Run App` from the Rstudio menu.
  
 ## Explanation
 UI-interface visualizes Newton's algorithm's work. You can choose colors for vizualisation and accuracy. First point is calculated as middle of right and left border. If you input wrong parameters, you will see message about it. For cleaning all values press "Reset".
@@ -37,7 +41,7 @@ You can run all unittests provided using `unittest.discover`:
 python -m unittest discover
 ```
 
-## Example
+## App interface
 First of all, UI-menu:  
 
 <img src="https://sun9-53.userapi.com/ug-N8BnuUMiB15O99iQEqzBNL0_f7uyitl5tKw/we8720H_XP8.jpg"  width="639" height="592">
