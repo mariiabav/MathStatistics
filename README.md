@@ -1,6 +1,5 @@
 # Telegram bot
 ## Purpose
-Telegram bot sends memes and GIFs.
 Application is used for visualization of server data.
 ## Requirements
 - [python 3.8.x](https://www.python.org/downloads/) or higher 
@@ -10,8 +9,6 @@ Application is used for visualization of server data.
 ## Installation
 - Download these files from GitLab or clone this repository via https:
     ```
-    git clone https://gitlab.com/mariiabav/telegram-bot.git
-    cd telegram-bot
     git clone https://gitlab.com/mariiabav/r_shiny-django.git
     cd r_shiny-django
     ```
@@ -33,34 +30,13 @@ Application is used for visualization of server data.
    ```
 - Start app through the `File -> Open File -> '.../ui.R'` in Rstudio. Select `Run App` from the Rstudio menu.
  
-## Explanation
-UI-interface visualizes Newton's algorithm's work. You can choose colors for vizualisation and accuracy. First point is calculated as middle of right and left border. If you input wrong parameters, you will see message about it. For cleaning all values press "Reset".
-
-You can run all unittests provided using `unittest.discover`:
-```
-python -m unittest discover
-```
-
 ## App interface
-First of all, UI-menu:  
 
-<img src="https://sun9-53.userapi.com/ug-N8BnuUMiB15O99iQEqzBNL0_f7uyitl5tKw/we8720H_XP8.jpg"  width="639" height="592">
+<img src="https://sun9-37.userapi.com/impf/m2EXaxLh8HBpnbOI9hjoI9BlWYmqgu1EEvtfMQ/WRROcqTzqG4.jpg?size=898x454&quality=96&proxy=1&sign=fe35bba6dc2eeec44d89bcf3e9d76fe0"  width="650" height="592">
 
-Enter your function:
+<img src="https://sun9-3.userapi.com/impf/OHyKJI5Yl5bAaPHTEEs5SUoxsrvQvCfWu_CaLA/5Z_WJfNZslU.jpg?size=896x449&quality=96&proxy=1&sign=7c1284c959998d117b50a69d0ddaad34"  width="700" height="592">
 
-<img src="https://sun9-66.userapi.com/4wfDfQd302GFEZrGqNc-WwWA095QUhPNWVo8Iw/RA_pUpuoGrc.jpg"  width="639" height="592">
+<img src="https://sun9-14.userapi.com/impf/guM1-MeZh3OcpYYNCgS1GMOr3qP9PN-JBcZOzQ/CKmEQLbfRq0.jpg?size=899x452&quality=96&proxy=1&sign=3973d0de9087301c8f183b32fa50bdd1"  width="750" height="592">
 
-And press "OK" (you'll see function graph first):
 
-<img src="https://sun9-8.userapi.com/Ur3moc4fswUQNqprJYt06R23FD9PYYlAr7-TFw/Ryguyiz3w9U.jpg"  width="639" height="592">
-
-Next you will see step by step algorithm.  
-
-_Step 1:_
-
-<img src="https://sun9-35.userapi.com/ce7DlrhR-e8AkN9olXxMvlp7pmykWudwPIr9sQ/lXapU2hcP_Y.jpg"  width="639" height="592">
-
-_Step 2:_
-
-<img src="https://sun9-26.userapi.com/UWkzM2zK_TAZ7z0XXhf8kbtyoD6oWvBQjlcofg/fw-LgpnconM.jpg"  width="639" height="592">
 
